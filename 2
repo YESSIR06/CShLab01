@@ -1,0 +1,41 @@
+using System.Diagnostics;
+Rectangle rectangle = new Rectangle(5, 6);
+
+Console.WriteLine($"Площадь прямоугольника: {rectangle.Area}");
+Console.WriteLine($"Периметр прямоугольника: {rectangle.Perimeter}");
+
+Debug.Assert(rectangle.Area == 30);
+Console.WriteLine("Тест 1 выполнен");
+Debug.Assert(rectangle.Perimeter == 22);
+Console.WriteLine("Тест 2 выполнен");
+class Rectangle
+{
+    public double sideA;
+    public double sideB;
+
+    public Rectangle(double sideA, double sideB)
+    {
+        this.sideA = sideA;
+        this.sideB = sideB;
+    }
+
+    private double CalculateArea()
+    {
+        return sideA * sideB;
+    }
+    
+    private double CalculatePerimeter()
+    {
+        return 2 * (sideA + sideB);
+    }
+    
+    public double Area
+    {
+        get { return CalculateArea(); }
+    }
+
+    public double Perimeter
+    {
+        get { return CalculatePerimeter(); }
+    }
+};
